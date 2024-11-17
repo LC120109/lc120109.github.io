@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Projects">
+	<div class="projects-container">
+		<h1>Projects</h1>
+		<div class="projects-grid">
+			{[1, 2, 3, 4].map((project) => (
+				<article class="project-card">
+					<div class="project-header">
+						<div class="folder-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+							</svg>
+						</div>
+						<div class="project-links">
+							<a href="#" class="project-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+								</svg>
+							</a>
+							<a href="#" class="project-link">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+									<polyline points="15 3 21 3 21 9"></polyline>
+									<line x1="10" y1="14" x2="21" y2="3"></line>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="project-body">
+						<h3>Project Name</h3>
+						<p>Description of the project goes here. This is a brief overview of what the project does and what technologies were used.</p>
+					</div>
+					<div class="project-footer">
+						<div class="tech-stack">
+							<span>Python</span>
+							<span>TensorFlow</span>
+							<span>React</span>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+
+</Layout>
+
+<style>
+	.projects-container {
+		padding: 2rem 0;
+		z-index: 1;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		color: var(--text-primary);
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.project-card {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+
+	.project-card:hover {
+		transform: translateY(-5px);
+		border-color: var(--accent);
+	}
+
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.folder-icon {
+		color: var(--accent);
+	}
+
+	.project-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.project-link {
+		color: var(--text-secondary);
+		transition: color 0.2s;
+	}
+
+	.project-link:hover {
+		color: var(--accent);
+	}
+
+	.project-body {
+		margin-bottom: 1.5rem;
+	}
+
+	.project-body h3 {
+		color: var(--text-primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.project-body p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.tech-stack {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.tech-stack span {
+		background: var(--bg-primary);
+		color: var(--text-secondary);
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 768px) {
+		.projects-container {
+			padding: 1rem;
+		}
+		
+		h1 {
+			font-size: 2rem;
+		}
+	}
+	
+	footer {
+    font-size: 0.7em; /* Made font slightly smaller */
+    position: fixed; /* Changed to fixed positioning */
+    bottom: 10px; /* Reduced bottom margin */
+    width: 100%;
+    text-align: left; /* Align with terminal style */
+    padding: 5px 20px; /* Added left padding to align with terminal content */
+    background-color: transparent; /* Removed background to match terminal style */
+    color: #fff;
+    opacity: 0.8; /* Added slight transparency */
+	}
+</style>

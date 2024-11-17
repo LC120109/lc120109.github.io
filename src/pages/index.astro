@@ -1,0 +1,492 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LC Personal Website">
+	<div class="hero">
+		<div class="terminal-window">
+			<div class="terminal-header">
+				<div class="terminal-buttons">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="terminal-title">main.terminal</div>
+			</div>
+			<div class="terminal-content">
+				<div class="header-section">
+					<div class="profile-container">
+						<div class="profile-frame">
+							<div class="profile-image">
+								<div class="image-placeholder">
+									<span class="add-image-text"> <img src="pfp.jpg" alt="Profile Picture" class="profile-image"></span>
+								</div>
+							</div>
+							<div class="frame-decoration"></div>
+						</div>
+						<div class="scan-line"></div>
+					</div>
+					<div class="title-section">
+						<div class="title-container">
+							<h1 class="cyber-title">
+								<span class="title-decoration">[</span>
+								LC
+								<span class="title-decoration">]</span>
+							</h1>
+							<div class="title-underline"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="terminal-interface">
+					<div class="command-group">
+						<p class="command nav-links"><a href="/about">$ whoami</a></p>
+					</div>
+					<div class="command-group">
+						<p class="command nav-links"><a href="/projects">$ current_projects</a></p>
+					</div>
+					<div class="command-group active">
+						<p class="command nav-links ideas-cursor"><a href="/blog">$ ideas</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</Layout>
+
+<style>
+	.hero {
+		min-height: 60vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem 0;
+	}
+
+	.terminal-window {
+		background: var(--bg-secondary);
+		width: 100%;
+		max-width: 800px;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		border: 1px solid var(--accent);
+		box-shadow: 0 0 20px rgba(255,255,255,0.1);
+		position: relative;
+	}
+
+	.terminal-window::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--accent), transparent);
+	}
+
+	.terminal-header {
+		background: var(--accent-dim);
+		padding: 0.5rem 1rem;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.terminal-buttons {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.terminal-buttons span {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: var(--text-secondary);
+		position: relative;
+	}
+
+	.terminal-buttons span:hover::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 6px;
+		height: 6px;
+		background: var(--accent);
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+	}
+
+	.terminal-title {
+		color: var(--text-secondary);
+		margin-left: 1rem;
+		font-family: 'VT323', monospace;
+		font-size: 1rem;
+		position: relative;
+	}
+
+	.terminal-content {
+		padding: 2rem;
+		position: relative;
+	}
+
+	.header-section {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+		position: relative;
+	}
+
+	.profile-container {
+		position: relative;
+		z-index: 1;
+	}
+
+	.profile-frame {
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
+		position: relative;
+		width: 120px;
+		height: 120px;
+	}
+
+	.profile-image {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 2px solid var(--accent);
+		box-shadow: 0 0 20px rgba(255,255,255,0.1);
+		position: relative;
+		z-index: 2;
+	}
+
+	.frame-decoration {
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		right: -5px;
+		bottom: -5px;
+		border: 1px solid var(--accent);
+		border-radius: 50%;
+		animation: rotate 10s linear infinite;
+	}
+
+	.frame-decoration::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 140%;
+		height: 140%;
+		transform: translate(-50%, -50%);
+		border: 1px dashed var(--accent);
+		border-radius: 50%;
+		opacity: 0.5;
+	}
+
+	.scan-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: var(--accent);
+		opacity: 0.5;
+		animation: scan 2s linear infinite;
+	}
+
+	.image-placeholder {
+		width: 100%;
+		height: 100%;
+		background: var(--bg-primary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		text-align: center;
+	}
+
+	.add-image-text {
+		color: var(--accent);
+		font-size: 1rem;
+		font-family: 'VT323', monospace;
+	}
+
+	.title-section {
+		flex-grow: 1;
+	}
+
+	.title-container {
+		position: relative;
+	}
+
+	.cyber-title {
+		font-family: 'VT323', monospace;
+		font-size: 3.5rem;
+		color: var(--text-primary);
+		margin: 0;
+		letter-spacing: 2px;
+		position: relative;
+		display: inline-block;
+	}
+
+	.title-decoration {
+		color: var(--accent);
+		opacity: 0.8;
+	}
+
+	.title-underline {
+		height: 2px;
+		background: linear-gradient(90deg, transparent, var(--accent), transparent);
+		margin-top: 0.5rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.title-underline::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+		animation: slide 3s linear infinite;
+	}
+
+	.terminal-interface {
+		font-family: 'VT323', monospace;
+		font-size: 1.2rem;
+	}
+
+	.command-group {
+		margin-bottom: 1.5rem;
+	}
+
+
+	.command {
+		color: var(--accent);
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.command::before {
+		content: ">";
+		margin-right: 0.5rem;
+	}
+
+	.response {
+		color: var(--text-secondary);
+		margin-left: 1rem;
+		position: relative;
+	}
+
+	.response::before {
+		content: '';
+		position: absolute;
+		left: -1rem;
+		top: 50%;
+		width: 0.5rem;
+		height: 1px;
+		background: var(--text-secondary);
+	}
+
+	.section-title {
+		font-family: 'VT323', monospace;
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		color: var(--text-primary);
+		display: inline-block;
+		position: relative;
+	}
+
+	.featured-projects {
+		margin-top: 4rem;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.project-card {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		overflow: hidden;
+		transition: all 0.3s;
+		position: relative;
+	}
+
+	.project-card:hover {
+		transform: translateY(-5px);
+		border-color: var(--accent);
+		box-shadow: 0 0 20px rgba(255,255,255,0.1);
+	}
+
+	.card-header {
+		margin-bottom: 1rem;
+	}
+
+	.card-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.bracket {
+		color: var(--accent);
+		opacity: 0.8;
+	}
+
+	.project-content {
+		padding: 1.5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.project-content h3 {
+		font-family: 'VT323', monospace;
+		color: var(--text-primary);
+		margin: 0;
+		font-size: 1.5rem;
+	}
+
+	.project-content p {
+		color: var(--text-secondary);
+		margin: 1rem 0;
+		font-family: 'Space Mono', monospace;
+	}
+
+	.tech-stack {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.tech-stack span {
+		background: var(--bg-primary);
+		color: var(--text-secondary);
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		font-size: 0.875rem;
+		font-family: 'VT323', monospace;
+		border: 1px solid var(--border);
+		transition: all 0.2s;
+	}
+
+	.tech-stack span:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+		transform: translateY(-2px);
+	}
+
+	.card-decoration {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.card-decoration::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: repeating-linear-gradient(
+			45deg,
+			var(--accent) 0%,
+			var(--accent) 0.1%,
+			transparent 0.1%,
+			transparent 50%
+		);
+		opacity: 0.1;
+		animation: rotate 20s linear infinite;
+	}
+
+	@keyframes pulse {
+		0% { opacity: 1; }
+		50% { opacity: 0.5; }
+		100% { opacity: 1; }
+	}
+
+	@keyframes rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@keyframes scan {
+		0% { transform: translateY(0); }
+		100% { transform: translateY(120px); }
+	}
+
+	@keyframes slide {
+		0% { left: -100%; }
+		100% { left: 100%; }
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+
+	@media (max-width: 768px) {
+		.header-section {
+			flex-direction: column;
+			text-align: center;
+			gap: 2rem;
+		}
+
+		.cyber-title {
+			font-size: 2.5rem;
+		}
+
+		.terminal-window {
+			margin: 0 1rem;
+		}
+
+		.profile-frame {
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+		}
+	}
+	.profile-image {
+    	width: 120px; /* Set a fixed width */
+    	height: 120px; /* Set a fixed height */
+    	border-radius: 50%; /* Keeps the circular shape */
+    	overflow: hidden; /* Ensures no overflow from image */
+    	position: relative;
+	}
+
+	footer {
+    font-size: 0.7em; /* Made font slightly smaller */
+    position: fixed; /* Changed to fixed positioning */
+    bottom: 10px; /* Reduced bottom margin */
+    width: 100%;
+    text-align: left; /* Align with terminal style */
+    padding: 5px 20px; /* Added left padding to align with terminal content */
+    background-color: transparent; /* Removed background to match terminal style */
+    color: #fff;
+    opacity: 0.8; /* Added slight transparency */
+	}
+
+
+</style>

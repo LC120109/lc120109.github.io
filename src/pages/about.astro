@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me">
+	<div class="blog-container">
+		<h1>About Me</h1>
+		<div class="about-me">
+			<p> Hi and welcome to my personal website. Here you will see my current and future projects, my blog posts and other things I may want to share in the future.<br>Who am I?<br> I'm a 22 year old man studying electromechanics. Do I like it? Yes. Do I like school? No. So, my goal is to build as many (and good) projects as possible, so who knows if I can make money and not worry so much about school.</p>
+					</div>
+				</article>
+		</div>
+	</div>
+
+
+</Layout>
+
+<style>
+	.blog-container {
+		padding: 2rem 0;
+	}
+
+	h1 {
+		font-size: 3.5rem;
+		margin-bottom: 2rem;
+		color: var(--text-primary);
+		font-family: 'VT323', monospace;
+	}
+
+	.posts-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.blog-post {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		padding: 2rem;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+
+	.blog-post:hover {
+		transform: translateY(-5px);
+		border-color: var(--accent);
+	}
+
+	.post-meta {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.post-date, .post-category {
+		color: var(--text-secondary);
+		font-size: 0.875rem;
+	}
+
+	.post-category {
+		color: var(--accent);
+	}
+
+	.post-title {
+		font-size: 1.5rem;
+		color: var(--text-primary);
+		margin-bottom: 1rem;
+	}
+
+	.post-excerpt {
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.post-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.read-more {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--accent);
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.read-more:hover {
+		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		.blog-container {
+			padding: 1rem;
+		}
+		
+		h1 {
+			font-size: 2rem;
+		}
+		
+		.blog-post {
+			padding: 1.5rem;
+		}
+	}
+
+	footer {
+    font-size: 0.7em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 5px 20px;
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly transparent background */
+    backdrop-filter: blur(5px); /* Adds blur effect to background */
+    z-index: 999; /* Keeps footer on top */
+    height: 40px; /* Set specific height for footer */
+}
+</style>

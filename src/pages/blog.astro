@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Blog">
+	<div class="blog-container">
+		<h1>Blog</h1>
+		<div class="posts-grid">
+			{[1, 2, 3].map((post) => (
+				<article class="blog-post">
+					<div class="post-meta">
+						<span class="post-date">2024-01-{post}</span>
+						<span class="post-category">AI & ML</span>
+					</div>
+					<h2 class="post-title">Test</h2>
+					<p class="post-excerpt">
+						Test...
+					</p>
+					<div class="post-footer">
+						<a href="#" class="read-more">
+							Read More
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+								<polyline points="12 5 19 12 12 19"></polyline>
+							</svg>
+						</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+
+
+</Layout>
+
+<style>
+	.blog-container {
+		padding: 2rem 0;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		color: var(--text-primary);
+	}
+
+	.posts-grid {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.blog-post {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		padding: 2rem;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+
+	.blog-post:hover {
+		transform: translateY(-5px);
+		border-color: var(--accent);
+	}
+
+	.post-meta {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.post-date, .post-category {
+		color: var(--text-secondary);
+		font-size: 0.875rem;
+	}
+
+	.post-category {
+		color: var(--accent);
+	}
+
+	.post-title {
+		font-size: 1.5rem;
+		color: var(--text-primary);
+		margin-bottom: 1rem;
+	}
+
+	.post-excerpt {
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.post-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.read-more {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--accent);
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.read-more:hover {
+		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		.blog-container {
+			padding: 1rem;
+		}
+		
+		h1 {
+			font-size: 2rem;
+		}
+		
+		.blog-post {
+			padding: 1.5rem;
+		}
+	}
+
+	footer {
+    font-size: 0.7em; /* Made font slightly smaller */
+    position: fixed; /* Changed to fixed positioning */
+    bottom: 10px; /* Reduced bottom margin */
+    width: 100%;
+    text-align: left; /* Align with terminal style */
+    padding: 5px 20px; /* Added left padding to align with terminal content */
+    background-color: transparent; /* Removed background to match terminal style */
+    color: #fff;
+    opacity: 0.8; /* Added slight transparency */
+	}
+</style>
