@@ -1,0 +1,9 @@
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+remote_theme: poole/hyde
+
+title: "Luis Valente"
+description: "Engineer • Projects • Writings"
