@@ -9,3 +9,5 @@ gem "jekyll-remote-theme", "~> 0.4.3"
 # Common extras (optional)
 gem "jekyll-seo-tag", "~> 2.8"
 gem "jekyll-sitemap", "~> 1.4"
+
+gem "jekyll-paginate", "~> 1.1"
