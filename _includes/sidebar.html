@@ -9,7 +9,10 @@
     </div>
 
     <nav class="sidebar-nav">
-      <!-- your links -->
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+    <a class="sidebar-nav-item{% if page.url == '/about/' %} active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+</nav>
+
     </nav>
 
     <!-- Remove or customize the footer if it currently shows your name -->
