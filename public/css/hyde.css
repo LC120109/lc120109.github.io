@@ -99,9 +99,10 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-.sidebar .container {
-  padding-top: 24px;   /* adjust to taste */
-}
+.sidebar .container { padding-top: 24px; }
+.sidebar-nav { display: block; margin-top: 12px; }
+.sidebar-nav .sidebar-nav-item { display: block; padding: 4px 0; }
+
 
 /* Sticky sidebar
  *
